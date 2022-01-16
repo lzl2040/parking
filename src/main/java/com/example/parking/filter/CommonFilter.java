@@ -21,6 +21,7 @@ public class CommonFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
+
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=UTF-8");
