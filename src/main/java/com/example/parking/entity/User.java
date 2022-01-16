@@ -2,15 +2,27 @@ package com.example.parking.entity;
 
 public class User {
     private String userNum;
-    private String userName;
+    private String username;
     private String pwd;
     private int sex;
     private String liveAddress;
     private String phone;
 
     public User(String name, String pwd){
-        this.userName = name;
+        this.username = name;
         this.pwd = pwd;
+    }
+
+    public User(String usernum,String username, String pwd, int sex, String liveAddress, String phone) {
+        this.userNum = usernum;
+        this.username = username;
+        this.pwd = pwd;
+        this.sex = sex;
+        this.liveAddress = liveAddress;
+        this.phone = phone;
+    }
+
+    public User() {
     }
 
     public String getUserNum() {
@@ -19,14 +31,6 @@ public class User {
 
     public void setUserNum(String userNum) {
         this.userNum = userNum;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getPwd() {
@@ -59,5 +63,13 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

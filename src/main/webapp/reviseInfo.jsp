@@ -47,32 +47,32 @@
         .rpwd-wra{
             display: none;
         }
-
     </style>
 
 </head>
 <body>
 <%User user = (User) request.getSession().getAttribute("user");%>
-
     <div class="revise-wrapper">
         <div class="revise-info-wrapper">
-            <form method="post" action="update" role="form">
+            <form method="post" action="userservice" role="form">
+                <input type="hidden" name="action" value="updateUser">
+                <input type="hidden" name="usernum" value="${sessionScope.user.userNum}">
                 <div class="form-group">
                     <span class="tag">用户名:</span>
-                    <c:if test="${not empty user.userName}">
-                        <input type="text" class="form-control input-item" name="username" value="${user.userName}">
+                    <c:if test="${not empty user.username}">
+                        <input type="text" class="form-control input-item" name="username" value="${user.username}">
                     </c:if>
-                    <c:if test="${empty user.userName}">
+                    <c:if test="${empty user.username}">
                         <input type="text" class="form-control" name="username">
                     </c:if>
                 </div>
                 <div class="form-group">
                     <span class="tag">性别:</span>
                     <c:if test="${user.sex == 0}">
-                        <input type="text" class="form-control" name="sex" value="男">
+                        <input type="text" class="form-control" name="sex" value="女">
                     </c:if>
                     <c:if test="${user.sex == 1}">
-                        <input type="text" class="form-control" name="sex" value="女">
+                        <input type="text" class="form-control" name="sex" value="男">
                     </c:if>
                 </div>
                 <div class="form-group">

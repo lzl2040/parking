@@ -58,22 +58,28 @@
         <div class="info">
             <span class="tag">用户名:</span>
             <span class="content">
-                <%=user.getUserName()%>
+                <%=user.getUsername()%>
             </span>
         </div>
         <div class="info">
             <span class="tag">性别:</span>
             <span class="content">
+                <c:if test="${sessionScope.user.sex eq 1}">
+                    男
+                </c:if>
+                <c:if test="${sessionScope.user.sex eq 0}">
+                    女
+                </c:if>
             </span>
         </div>
         <div class="info">
             <span class="tag">电话号码:</span>
-            <span class="content"></span>
+            <span class="content">${sessionScope.user.phone}</span>
         </div>
 
         <div class="info">
             <span class="tag">居住地:</span>
-            <span class="content">344333242443434343</span>
+            <span class="content">${sessionScope.user.liveAddress}</span>
         </div>
 
         <div class="info">

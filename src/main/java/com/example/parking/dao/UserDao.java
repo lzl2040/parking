@@ -19,7 +19,11 @@ public class UserDao {
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()){
-                User user = new User(name,pwd);
+                String userNum = String.valueOf(rs.getInt("user_num"));
+                int sex = rs.getInt("sex");
+                String liveAddress = rs.getString("live_address");
+                String phone = rs.getString("phone");
+                User user = new User(userNum,name,pwd,sex,liveAddress,phone);
                 ConnectPool.closeAll(conn,rs,ps,null);
                 return user;
             }
