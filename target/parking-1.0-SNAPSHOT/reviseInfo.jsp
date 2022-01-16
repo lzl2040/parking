@@ -1,4 +1,5 @@
-<%@ page import="com.example.parkingManage.entity.User" %><%--
+
+<%@ page import="com.example.parking.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: 联想
   Date: 2021/11/24

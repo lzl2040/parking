@@ -79,7 +79,9 @@
                 </li>
             </ul>
         </div>
-        <div class="mainFrame"></div>
+        <div class="mainFrame">
+
+        </div>
     </div>
 </body>
 <script type="application/javascript">

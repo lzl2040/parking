@@ -1,4 +1,4 @@
-<%@ page import="com.example.parkingManage.entity.User" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: 联想
   Date: 2021/11/23
@@ -7,6 +7,7 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" import="java.util.*"%>
+<%@ page import="com.example.parking.entity.User" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
