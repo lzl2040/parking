@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <style type="text/css">
         .form-bg{
             background: #00b4ef;
@@ -138,9 +139,13 @@
         }
 
         html{
-            background-image: url("img/c1.jpg");/*还不清楚原因,为啥改个名字就好了*/
+            /*
+            /static与static区别
+            */
+            background-image: url("static/img/c1.jpg");/*还不清楚原因,为啥改个名字就好了*/
             background-repeat: no-repeat;
             background-size: 100% auto;
+            background-attachment: fixed;
             animation-name:myfirst;
             animation-duration:30s;
             /*变换时间*/
@@ -154,16 +159,16 @@
         @keyframes myfirst
         {
             0%{
-                background-image: url("img/c1.jpg");
+                background-image: url("static/img/c1.jpg");
             }
             20%{
-                background-image: url("img/b1.jpg");
+                background-image: url("static/img/b1.jpg");
             }
             40%{
-                background-image: url("img/b1.jpg");
+                background-image: url("static/img/b1.jpg");
             }
             100%{
-                background-image: url("img/c1.jpg");
+                background-image: url("/static/img/c1.jpg");
             }
         }
 
@@ -187,7 +192,8 @@
         }
 
     </style>
-    <title>Login</title>
+<%--    &lt;%&ndash;    设置基础地址&ndash;%&gt;--%>
+<%--    <%@include file="/page/common/base.jsp"%>--%>
 </head>
 
 <body>
@@ -209,11 +215,10 @@
                 </div>
                 <div class="register-wrapper">
                     <a href="#" class="forget">忘记密码</a>
-                    <a href="register.jsp" class="register">注册</a>
+                    <a href="page/user/register.jsp" class="register">注册</a>
                 </div>
                 <button type="submit" class="btn btn-default" id="asubmit">登录</button>
             </form>
-
         </div>
 
     </div>

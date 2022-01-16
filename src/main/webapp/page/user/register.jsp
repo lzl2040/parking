@@ -1,43 +1,44 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 联想
+  Date: 2021/11/21
+  Time: 10:39
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+<%--    <%@include file="/page/common/base.jsp"%>--%>
     <style type="text/css">
-        .form-bg{
-            background: #00b4ef;
-        }
         .form-horizontal{
-            padding-bottom: 40px;
+            background: #fff;
+            padding-bottom: 35px;
             border-radius: 15px;
             text-align: center;
-            background: rgba(255,255,255,0.4);
-            width:500px;
-            height: 400px;
-            margin:120px auto;
-            box-shadow: 0px 0px 30px #ccc;
+            background: rgba(255,255,255,0.45);
+            width:450px;
+            height: 520px;
+            margin:90px auto;
+            box-shadow: 5px 5px 20px #ccc;
         }
         .form-horizontal .heading{
             display: block;
             font-size: 35px;
             font-weight: 700;
-            padding: 35px 0;
-            border-bottom: 1px solid #F0F0F0;
+            padding: 25px 0;
+            border-bottom: 1px solid #dddddd82;
             margin-bottom: 30px;
-            /*background-image: linear-gradient(to bottom,#6fcdd533, #11a3fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;*/
+            /*background-image: linear-gradient(to bottom,#6db6ae36, #0690e3);*/
+            /*-webkit-background-clip: text;*/
+            /*-webkit-text-fill-color: transparent;*/
         }
         .form-horizontal .form-group{
             padding: 0 40px;
-            margin: 0 0 25px 0;/*上右下左*/
+            margin: 0 0 25px 0;
             position: relative;
-        }
-
-        .form-horizontal .help{
-            margin: 0 0 10px 0;
         }
         .form-horizontal .form-control{
             background: #f0f0f0;
@@ -88,17 +89,23 @@
         .form-horizontal .main-checkbox label:after{
             content: "";
             width: 10px;
-            height: 5px;
+            height: 6px;
             position: absolute;
-            top: 5px;
+            top: 4.5px;
             left: 4px;
-            border: 3px solid #fff;
+            border: 3px solid #eee;
             border-top: none;
             border-right: none;
             background: transparent;
             opacity: 0;
             -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
+        }
+        .form-horizontal .main-checkbox input[type=radio]{
+            visibility: hidden;
+        }
+        .form-horizontal .main-checkbox input[type=radio]:checked + label:after{
+            opacity: 1;
         }
         .form-horizontal .main-checkbox input[type=checkbox]{
             visibility: hidden;
@@ -107,7 +114,6 @@
             opacity: 1;
         }
         .form-horizontal .text{
-
             float: left;
             margin-left: 7px;
             line-height: 20px;
@@ -115,7 +121,6 @@
             text-transform: capitalize;
         }
         .form-horizontal .btn{
-            width: 100px;
             font-size: 14px;
             color: #fff;
             background: #00b4ef;
@@ -139,86 +144,36 @@
         }
 
         html{
-            /*
-            /static与static区别
-            */
-            background-image: url("static/img/c1.jpg");/*还不清楚原因,为啥改个名字就好了*/
+            background-image: url("/parking/static/img/c1.jpg");
             background-repeat: no-repeat;
             background-size: 100% auto;
-            background-attachment: fixed;
-            animation-name:myfirst;
-            animation-duration:30s;
-            /*变换时间*/
-            animation-delay:2s;
-            /*动画开始时间*/
-            animation-iteration-count:infinite;
-            /*下一周期循环播放*/
-            animation-play-state:running;
-            /*动画开始运行*/
         }
-        @keyframes myfirst
-        {
-            0%{
-                background-image: url("static/img/c1.jpg");
-            }
-            20%{
-                background-image: url("static/img/b1.jpg");
-            }
-            40%{
-                background-image: url("static/img/b1.jpg");
-            }
-            100%{
-                background-image: url("/static/img/c1.jpg");
-            }
-        }
-
-        .register-wrapper{
-            font-size: small;
-            margin-top: -10px;
-            margin: 0 auto;
-            width: 40%;
-            height: 30px;
-        }
-        .register-wrapper a{
-            text-decoration: none;
-        }
-
-        .register-wrapper .forget{
-            float: left;
-        }
-
-        .register-wrapper .register{
-            float: right;
-        }
-
     </style>
-<%--    &lt;%&ndash;    设置基础地址&ndash;%&gt;--%>
-<%--    <%@include file="/page/common/base.jsp"%>--%>
 </head>
-
 <body>
 <div class="container">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <form class ="form-horizontal" action="login" method="post" id="admin">
-                <input type="hidden" name="action" value="login">
-                <span class="heading"><font color="#4F4F4F">用户登录</font> </span>
+            <form class ="form-horizontal" action="register" method="post" id="admin">
+                <input type="hidden" name="actionName" value="register">
+                <span class="heading"><font color="#4F4F4F">用户注册</font> </span>
                 <div class="form-group">
-                    <input type="text" name="username" class="form-control" id="inputEmail" placeholder="用户名或电子邮件">
+                    <input type="text" name="username" class="form-control" id="ruserName" placeholder="用户名" oninput="veName()">
                     <i class="fa fa-user"></i>
                 </div>
-
                 <div class="form-group help">
                     <input type="password" name="pwd" class="form-control" id="pwd" placeholder="密码">
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>
-                <div class="register-wrapper">
-                    <a href="#" class="forget">忘记密码</a>
-                    <a href="page/user/register.jsp" class="register">注册</a>
+                <div class="form-group help">
+                    <input type="password" name="rpwd" class="form-control" id="vpwd" placeholder="验证密码">
+                    <i class="fa fa-lock"></i>
+                    <a href="#" class="fa fa-question-circle"></a>
                 </div>
-                <button type="submit" class="btn btn-default" id="asubmit">登录</button>
+                <button type="submit" class="btn btn-default" id="bu1">注册</button>
             </form>
+
         </div>
 
     </div>
