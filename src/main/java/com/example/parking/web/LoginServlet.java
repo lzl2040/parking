@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             }else {
                 System.out.println("登录成功");
                 req.getSession().setAttribute("user",user);
-                resp.sendRedirect("userPage.jsp");
+                resp.sendRedirect(req.getContextPath()+"/userPage.jsp");
             }
         }else{
             req.getSession().setAttribute("msg","用户名或者密码不能为空");

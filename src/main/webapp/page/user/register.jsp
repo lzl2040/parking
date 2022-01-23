@@ -10,7 +10,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
 <%--    <%@include file="/page/common/base.jsp"%>--%>
     <style type="text/css">
         .form-horizontal{
@@ -65,6 +66,7 @@
         .form-horizontal .form-control:focus + i{
             color: #00b4ef;
         }
+
         .form-horizontal .fa-question-circle{
             display: inline-block;
             position: absolute;
@@ -74,6 +76,7 @@
             color: #808080;
             transition: all 0.5s ease 0s;
         }
+
         .form-horizontal .fa-question-circle:hover{
             color: #000;
         }
@@ -146,7 +149,13 @@
         html{
             background-image: url("/parking/static/img/c1.jpg");
             background-repeat: no-repeat;
-            background-size: 100% auto;
+            background-size: 100%;
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
