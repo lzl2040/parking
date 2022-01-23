@@ -12,7 +12,8 @@ public class UserDaoImp extends BaseDao implements UserDao2 {
 
     @Override
     public int saveUser(User user) {
-        return 0;
+        String sql = "insert into user(user_num,user_name,pwd) values(null,?,?)";
+        return update(sql,user.getUsername(),user.getPwd());
     }
 
     @Override

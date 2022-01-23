@@ -158,13 +158,14 @@
             height: 100%;
         }
     </style>
+    <%@include file="/page/common/base.jsp"%>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <form class ="form-horizontal" action="register" method="post" id="admin">
-                <input type="hidden" name="actionName" value="register">
+            <form class ="form-horizontal" action="userservice" method="post" id="admin">
+                <input type="hidden" name="action" value="register">
                 <span class="heading"><font color="#4F4F4F">用户注册</font> </span>
                 <div class="form-group">
                     <input type="text" name="username" class="form-control" id="ruserName" placeholder="用户名" oninput="veName()">

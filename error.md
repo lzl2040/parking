@@ -34,6 +34,11 @@ static/img/c1.jpg
 
 目前没有解决这个问题。
 
-### 2.2 当我把jsp移入某个文件夹后，设置背景图片地址得是/parking/static/img/c1.jpg
+### 2.2 当我把jsp移入某个文件夹后，设置背景图片地址得是**/parking/static/img/c1.jpg**
 
 好像只能这样子，目前没找到好的解决方法
+
+## 3.在jsp中引入jsp的需要注意的地方
+
+引入的jsp中**不能含有html,body部分**，不然会报错，显示无法找到这个文件，但是style,link这些是可以有的。
+

@@ -9,11 +9,16 @@ public class UserServiceImp implements UserService {
     UserDao2 userDao2 = new UserDaoImp();
     @Override
     public User login(String username, String pwd) {
-        return null;
+        return userDao2.queryUserByNameAndPwd(username,pwd);
     }
 
     @Override
     public int updateUser(User user) {
         return userDao2.updateUser(user);
+    }
+
+    @Override
+    public int register(User user) {
+        return userDao2.saveUser(user);
     }
 }

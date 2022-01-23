@@ -36,7 +36,7 @@ public class UserDao {
     }
 
     public boolean register(String name,String pwd){
-        String sql = "insert into user(user_num,user_nmae,pwd) values(null,?,?)";
+        String sql = "insert into user(user_num,user_name,pwd) values(null,?,?)";
         try {
             Connection conn = ConnectPool.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);

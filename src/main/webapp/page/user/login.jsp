@@ -149,7 +149,7 @@
       /*
       /static与static区别
       */
-      background-image: url("static/img/c1.jpg");/*还不清楚原因,为啥改个名字就好了*/
+      background-image: url("/parking/static/img/c1.jpg");/*还不清楚原因,为啥改个名字就好了*/
       background-repeat: no-repeat;
       background-size: 100% auto;
       background-attachment: fixed;
@@ -166,16 +166,16 @@
     @keyframes myfirst
     {
       0%{
-        background-image: url("static/img/c1.jpg");
+        background-image: url("/parking/static/img/c1.jpg");
       }
       20%{
-        background-image: url("static/img/b1.jpg");
+        background-image: url("/parking/static/img/b1.jpg");
       }
       40%{
-        background-image: url("static/img/b1.jpg");
+        background-image: url("/parking/static/img/b1.jpg");
       }
       100%{
-        background-image: url("static/img/c1.jpg");
+        background-image: url("/parking/static/img/c1.jpg");
       }
     }
 
@@ -207,7 +207,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-offset-3 col-md-6">
-      <form class ="form-horizontal" action="login" method="post" id="admin">
+      <form class ="form-horizontal" action="userservice" method="post" id="admin">
         <input type="hidden" name="action" value="login">
         <span class="heading"><font color="#4F4F4F">用户登录</font> </span>
         <div class="form-group">
@@ -222,7 +222,7 @@
         </div>
         <div class="register-wrapper">
           <a href="#" class="forget">忘记密码</a>
-          <a href="register.jsp" class="register">注册</a>
+          <a href="page/user/register.jsp" class="register">注册</a>
         </div>
         <button type="submit" class="btn btn-default" id="asubmit">登录</button>
       </form>
