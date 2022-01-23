@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.example.parking.entity.User" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
@@ -79,6 +80,7 @@
 </head>
 <body>
     <% User user = (User) request.getSession().getAttribute("user");%>
+    <%@include file="/page/common/userTop.jsp"%>
     <div class="middleFrame">
         <%@include file="/page/common/leftNav.jsp"%>
         <div class="mainFrame">
@@ -87,17 +89,22 @@
                 <div class="info">
                     <span class="tag">用户名:</span>
                     <span class="content">
-                <%=user.getUsername()%>
-            </span>
+                        <%=user.getUsername()%>
+                    </span>
                 </div>
                 <div class="info">
                     <span class="tag">性别:</span>
-                        <c:if test="${sessionScope.user.sex eq 1}">
-                            <span class="content">man</span>
-                        </c:if>
-                        <c:if test="${sessionScope.user.sex eq 0}">
-                            <span class="content">woman</span>
-                        </c:if>
+                        <c:choose>
+                            <c:when test="${user.sex == 0}">
+                                <span class="content">woman</span>
+                            </c:when>
+                            <c:when test="${user.sex == 1}">
+                                <span class="content">man</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="content">man</span>
+                            </c:otherwise>
+                        </c:choose>
                 </div>
                 <div class="info">
                     <span class="tag">电话号码:</span>

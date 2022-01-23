@@ -52,7 +52,7 @@
     </style>
 </head>
 <body>
-<%--    <%@include file="/page/common/userTop.jsp"%>--%>
+    <%@include file="/page/common/userTop.jsp"%>
     <div class="middleFrame">
         <%@include file="/page/common/leftNav.jsp"%>
         <div class="mainFrame">

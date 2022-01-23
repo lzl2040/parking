@@ -84,79 +84,79 @@
 
 </head>
 <body>
-<div class="middleFrame">
-    <%@include file="/page/common/leftNav.jsp"%>
-    <div class="mainFrame">
-        <div class="revise-wrapper">
-            <div class="revise-info-wrapper">
-                <form method="post" action="userservice" role="form">
-                    <input type="hidden" name="action" value="updateUser">
-                    <input type="hidden" name="usernum" value="${sessionScope.user.userNum}">
-                    <div class="form-group">
-                        <span class="tag">用户名:</span>
-                        <c:if test="${not empty user.username}">
-                            <input type="text" class="form-control input-item" name="username" value="${user.username}">
-                        </c:if>
-                        <c:if test="${empty user.username}">
-                            <input type="text" class="form-control" name="username">
-                        </c:if>
-                    </div>
-                    <div class="form-group">
-                        <span class="tag">性别:</span>
-                        <c:if test="${user.sex == 0}">
-                            <input type="text" class="form-control" name="sex" value="女">
-                        </c:if>
-                        <c:if test="${user.sex == 1}">
-                            <input type="text" class="form-control" name="sex" value="男">
-                        </c:if>
-                    </div>
-                    <div class="form-group">
-                        <span class="tag">电话号码:</span>
-                        <c:if test="${not empty user.phone}">
-                            <input type="text" class="form-control" name="phone" value="${user.phone}">
-                        </c:if>
-                        <c:if test="${empty user.phone}">
-                            <input type="text" class="form-control" name="phone">
-                        </c:if>
-                    </div>
-                    <div class="form-group">
-                        <span class="tag">居住地:</span>
-                        <c:if test="${not empty user.liveAddress}">
-                            <input type="text" class="form-control" name="address" value="${user.liveAddress}">
-                        </c:if>
-                        <c:if test="${empty user.liveAddress}">
-                            <input type="text" class="form-control" name="address">
-                        </c:if>
-                    </div>
-                    <div class="form-group">
-                        <span class="tag">密码:</span>
-                        <c:if test="${not empty user.pwd}">
-                            <input type="text" class="form-control" name="pwd" value="${user.pwd}">
-                        </c:if>
-                        <c:if test="${empty user.pwd}">
-                            <input type="text" class="form-control" name="pwd" id="pwd">
-                        </c:if>
-                    </div>
-                    <div class="form-group rpwd-wra">
-                        <span class="tag">确认密码:</span>
-                        <c:if test="${not empty user.pwd}">
-                            <input type="text" class="form-control" name="rpwd" value="${user.pwd}">
-                        </c:if>
-                        <c:if test="${empty user.pwd}">
-                            <input type="text" class="form-control" name="rpwd" id="rpwd">
-                        </c:if>
-                    </div>
-                    <div class="save-wrapper">
-                        <button class="save-btn btn-default btn" type="submit">保存</button>
-                    </div>
-                </form>
-            </div>
+    <%@include file="/page/common/userTop.jsp"%>
+    <div class="middleFrame">
+        <%@include file="/page/common/leftNav.jsp"%>
+        <div class="mainFrame">
+            <div class="revise-wrapper">
+                <div class="revise-info-wrapper">
+                    <form method="post" action="userservice" role="form">
+                        <input type="hidden" name="action" value="updateUser">
+                        <input type="hidden" name="usernum" value="${sessionScope.user.userNum}">
+                        <div class="form-group">
+                            <span class="tag">用户名:</span>
+                            <c:if test="${not empty user.username}">
+                                <input type="text" class="form-control input-item" name="username" value="${user.username}">
+                            </c:if>
+                            <c:if test="${empty user.username}">
+                                <input type="text" class="form-control" name="username">
+                            </c:if>
+                        </div>
+                        <div class="form-group">
+                            <span class="tag">性别:</span>
+                            <c:if test="${user.sex == 0}">
+                                <input type="text" class="form-control" name="sex" value="女">
+                            </c:if>
+                            <c:if test="${user.sex == 1}">
+                                <input type="text" class="form-control" name="sex" value="男">
+                            </c:if>
+                        </div>
+                        <div class="form-group">
+                            <span class="tag">电话号码:</span>
+                            <c:if test="${not empty user.phone}">
+                                <input type="text" class="form-control" name="phone" value="${user.phone}">
+                            </c:if>
+                            <c:if test="${empty user.phone}">
+                                <input type="text" class="form-control" name="phone">
+                            </c:if>
+                        </div>
+                        <div class="form-group">
+                            <span class="tag">居住地:</span>
+                            <c:if test="${not empty user.liveAddress}">
+                                <input type="text" class="form-control" name="address" value="${user.liveAddress}">
+                            </c:if>
+                            <c:if test="${empty user.liveAddress}">
+                                <input type="text" class="form-control" name="address">
+                            </c:if>
+                        </div>
+                        <div class="form-group">
+                            <span class="tag">密码:</span>
+                            <c:if test="${not empty user.pwd}">
+                                <input type="text" class="form-control" name="pwd" value="${user.pwd}">
+                            </c:if>
+                            <c:if test="${empty user.pwd}">
+                                <input type="text" class="form-control" name="pwd" id="pwd">
+                            </c:if>
+                        </div>
+                        <div class="form-group rpwd-wra">
+                            <span class="tag">确认密码:</span>
+                            <c:if test="${not empty user.pwd}">
+                                <input type="text" class="form-control" name="rpwd" value="${user.pwd}">
+                            </c:if>
+                            <c:if test="${empty user.pwd}">
+                                <input type="text" class="form-control" name="rpwd" id="rpwd">
+                            </c:if>
+                        </div>
+                        <div class="save-wrapper">
+                            <button class="save-btn btn-default btn" type="submit">保存</button>
+                        </div>
+                    </form>
+                </div>
 
+            </div>
         </div>
     </div>
-</div>
-
-<script type="text/javascript">
+    <script type="text/javascript">
     $(function (){
         setSelected(window.location.hash);
         $("input[name = 'pwd']").on('click',function (){
