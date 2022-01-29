@@ -8,7 +8,7 @@ import java.util.List;
 public class MapDaoImp extends BaseDao implements MapDao {
     @Override
     public List<Location> queryParkingSpace() {
-        String sql = "select has_car,longtitude,latitude from location";
+        String sql = "select * from location";
         return queryForList(Location.class,sql);
     }
 }

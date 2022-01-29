@@ -9,6 +9,7 @@ import com.example.parking.util.CommonData;
 import com.example.parking.util.ConnectPool;
 import com.example.parking.util.WebUtils;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,7 +38,7 @@ public class UserServlet extends BaseServlet{
         }
     }
 
-    public void login(HttpServletRequest req, HttpServletResponse resp) throws SQLException,IOException{
+    public void login(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException, ServletException {
         String name = req.getParameter("username");
         String pwd = req.getParameter("pwd");
         if(CommonData.getPool()==null){
@@ -52,7 +53,7 @@ public class UserServlet extends BaseServlet{
             }else {
                 System.out.println("登录成功");
                 req.getSession().setAttribute("user",user);
-                resp.sendRedirect(req.getContextPath()+"/page/manage/map.jsp");
+                req.getRequestDispatcher("/getMap?action=getMap").forward(req,resp);
             }
         }else{
             req.getSession().setAttribute("msg","用户名或者密码不能为空");

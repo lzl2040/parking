@@ -89,7 +89,7 @@
                 <div class="info">
                     <span class="tag">用户名:</span>
                     <span class="content">
-                        <%=user.getUsername()%>
+                        <%=user.getUser_name()%>
                     </span>
                 </div>
                 <div class="info">
@@ -113,7 +113,7 @@
 
                 <div class="info">
                     <span class="tag">居住地:</span>
-                    <span class="content">${sessionScope.user.liveAddress}</span>
+                    <span class="content">${sessionScope.user.live_address}</span>
                 </div>
 
                 <div class="info">

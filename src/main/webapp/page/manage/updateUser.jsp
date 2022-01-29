@@ -92,13 +92,13 @@
                 <div class="revise-info-wrapper">
                     <form method="post" action="userservice" role="form">
                         <input type="hidden" name="action" value="updateUser">
-                        <input type="hidden" name="usernum" value="${sessionScope.user.userNum}">
+                        <input type="hidden" name="usernum" value="${sessionScope.user.user_num}">
                         <div class="form-group">
                             <span class="tag">用户名:</span>
-                            <c:if test="${not empty user.username}">
-                                <input type="text" class="form-control input-item" name="username" value="${user.username}">
+                            <c:if test="${not empty user.user_name}">
+                                <input type="text" class="form-control input-item" name="username" value="${user.user_name}">
                             </c:if>
-                            <c:if test="${empty user.username}">
+                            <c:if test="${empty user.user_name}">
                                 <input type="text" class="form-control" name="username">
                             </c:if>
                         </div>
@@ -122,10 +122,10 @@
                         </div>
                         <div class="form-group">
                             <span class="tag">居住地:</span>
-                            <c:if test="${not empty user.liveAddress}">
-                                <input type="text" class="form-control" name="address" value="${user.liveAddress}">
+                            <c:if test="${not empty user.live_address}">
+                                <input type="text" class="form-control" name="address" value="${user.live_address}">
                             </c:if>
-                            <c:if test="${empty user.liveAddress}">
+                            <c:if test="${empty user.live_address}">
                                 <input type="text" class="form-control" name="address">
                             </c:if>
                         </div>

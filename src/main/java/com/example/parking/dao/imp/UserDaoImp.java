@@ -13,12 +13,12 @@ public class UserDaoImp extends BaseDao implements UserDao2 {
     @Override
     public int saveUser(User user) {
         String sql = "insert into user(user_num,user_name,pwd) values(null,?,?)";
-        return update(sql,user.getUsername(),user.getPwd());
+        return update(sql,user.getUser_name(),user.getPwd());
     }
 
     @Override
     public int updateUser(User user) {
         String sql = "update user set user_name = ?,pwd = ?,live_address = ?,sex = ?,phone = ? where user_num = ?";
-        return update(sql,user.getUsername(),user.getPwd(),user.getLiveAddress(),user.getSex(),user.getPhone(),user.getUserNum());
+        return update(sql,user.getUser_name(),user.getPwd(),user.getLive_address(),user.getSex(),user.getPhone(),user.getUser_num());
     }
 }
