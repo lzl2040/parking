@@ -42,3 +42,7 @@ static/img/c1.jpg
 
 引入的jsp中**不能含有html,body部分**，不然会报错，显示无法找到这个文件，但是style,link这些是可以有的。
 
+## 4.SQLexception 报错Cannot create com.example.parking.entity.Location
+
+这是因为Location类中没有一个无参构造，只要加一个无参数构造就行了。
+
