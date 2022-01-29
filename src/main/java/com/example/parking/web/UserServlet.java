@@ -53,7 +53,7 @@ public class UserServlet extends BaseServlet{
             }else {
                 System.out.println("登录成功");
                 req.getSession().setAttribute("user",user);
-                req.getRequestDispatcher("/getMap?action=getMap").forward(req,resp);
+                resp.sendRedirect("getMap?action=getMap");
             }
         }else{
             req.getSession().setAttribute("msg","用户名或者密码不能为空");

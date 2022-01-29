@@ -33,7 +33,7 @@
 <div class="leftFrame">
     <ul class="function-menu">
         <li class="current" data-id = "car-position">
-            <a href="page/manage/map.jsp">车位信息</a>
+            <a href="getMap?action=getMap">车位信息</a>
         </li>
         <div class="line" style="height: 1px;width: 100%;background: white"></div>
         <li class="person-info" data-id = "person-info">

@@ -64,25 +64,38 @@
     <script type="text/javascript">
         $(function (){
             setSelected(window.location.hash);
-            var map = new BMapGL.Map("container");
-            var point = new BMapGL.Point(116.331398,39.897445);
-            map.centerAndZoom(point,12);                                        //中心点以及缩放
-            var geolocation = new BMapGL.Geolocation();
-            geolocation.getCurrentPosition(function(r){
-                if(this.getStatus() == BMAP_STATUS_SUCCESS){
-                    var mk = new BMapGL.Marker(r.point);
-                    map.addOverlay(mk);
-                    map.panTo(r.point);
-                }
-                else {
-                    alert('failed' + this.getStatus());
-                }
-            });
+            initMap();
 
             $(".function-menu").on("click","li",function (){
                 var eId = $(this).data("id");
                 window.location.hash = eId;
             });
+
+            function initMap(){
+                var map = new BMapGL.Map("container");
+                var point = new BMapGL.Point(116.331398,39.897445);
+                map.centerAndZoom(point,12);                                        //中心点以及缩放
+                map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+                var geolocation = new BMapGL.Geolocation();
+                geolocation.getCurrentPosition(function(r){
+                    if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                        var mk = new BMapGL.Marker(r.point);
+                        map.addOverlay(mk);
+                        map.panTo(r.point);
+                    }
+                    else {
+                        alert('failed' + this.getStatus());
+                    }
+                });
+                addMarker(map);
+            }
+
+            function addMarker(map){
+              <c:forEach items="${sessionScope.locations}" var="location">
+                    var marker = new BMapGL.Marker(new BMapGL.Point(${location.longtitude}, ${location.latitude}));
+                    map.addOverlay(marker);
+                </c:forEach>
+            };
 
             function setSelected(eId){
                 switch (eId){
