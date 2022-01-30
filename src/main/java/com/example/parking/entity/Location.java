@@ -1,19 +1,19 @@
 package com.example.parking.entity;
 
 public class Location {
-    private int locationId;
-    private int hasCar;
+    private int location_id;
+    private int has_car;
     private Double longtitude;
     private Double latitude;
-    private String carNum;
-
-    public Location(int hasCar, Double longtitude, Double latitude) {
-        this.hasCar = hasCar;
-        this.longtitude = longtitude;
-        this.latitude = latitude;
-    }
+    private String car_num;
 
     public Location() {
+    }
+
+    public Location(int has_car, Double longtitude, Double latitude) {
+        this.has_car = has_car;
+        this.longtitude = longtitude;
+        this.latitude = latitude;
     }
 
     public Double getLongtitude() {
@@ -32,27 +32,27 @@ public class Location {
         this.latitude = latitude;
     }
 
-    public String getCarNum() {
-        return carNum;
+    public int getLocation_id() {
+        return location_id;
     }
 
-    public void setCarNum(String carNum) {
-        this.carNum = carNum;
+    public void setLocation_id(int location_id) {
+        this.location_id = location_id;
     }
 
-    public int getLocationId() {
-        return locationId;
+    public int getHas_car() {
+        return has_car;
     }
 
-    public void setLocationId(int locationId) {
-        this.locationId = locationId;
+    public void setHas_car(int has_car) {
+        this.has_car = has_car;
     }
 
-    public int getHasCar() {
-        return hasCar;
+    public String getCar_num() {
+        return car_num;
     }
 
-    public void setHasCar(int hasCar) {
-        this.hasCar = hasCar;
+    public void setCar_num(String car_num) {
+        this.car_num = car_num;
     }
 }

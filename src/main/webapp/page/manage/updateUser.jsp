@@ -77,9 +77,11 @@
             height: 30px;
             background: white;
         }
+
         .rpwd-wra{
             display: none;
         }
+
     </style>
 
 </head>
@@ -132,19 +134,20 @@
                         <div class="form-group">
                             <span class="tag">密码:</span>
                             <c:if test="${not empty user.pwd}">
-                                <input type="text" class="form-control" name="pwd" value="${user.pwd}">
+                                <input type="password" class="form-control" name="pwd" value="${user.pwd}" disabled="disabled" id="pwd">
                             </c:if>
                             <c:if test="${empty user.pwd}">
-                                <input type="text" class="form-control" name="pwd" id="pwd">
+                                <input type="password" class="form-control" name="pwd" id="pwd" disabled="disabled">
                             </c:if>
+                            <input type="button" value="编辑" class="btn-default edit-btn">
                         </div>
                         <div class="form-group rpwd-wra">
                             <span class="tag">确认密码:</span>
                             <c:if test="${not empty user.pwd}">
-                                <input type="text" class="form-control" name="rpwd" value="${user.pwd}">
+                                <input type="password" class="form-control" name="rpwd" value="${user.pwd}">
                             </c:if>
                             <c:if test="${empty user.pwd}">
-                                <input type="text" class="form-control" name="rpwd" id="rpwd">
+                                <input type="password" class="form-control" name="rpwd" id="rpwd">
                             </c:if>
                         </div>
                         <div class="save-wrapper">
@@ -159,8 +162,13 @@
     <script type="text/javascript">
     $(function (){
         setSelected(window.location.hash);
-        $("input[name = 'pwd']").on('click',function (){
+        // $("input[name = 'pwd']").on('click',function (){
+        //     $(".rpwd-wra").css("display","block");
+        // });
+        $(".edit-btn").click(function (){
+            $("#pwd").removeAttr("disabled");
             $(".rpwd-wra").css("display","block");
+            $(".edit-btn").val("完成");
         });
 
         $(".function-menu").on("click","li",function (){

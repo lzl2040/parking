@@ -1,5 +1,6 @@
 package com.example.parking.filter;
 
+import com.example.parking.entity.User;
 import com.example.parking.util.CommonData;
 import com.example.parking.util.ConnectPool;
 
@@ -35,12 +36,18 @@ public class CommonFilter implements Filter {
         }
 
         System.out.printf("%s %s 访问了 %s%n", date, ip, url);
-
         filterChain.doFilter(req, resp);
     }
 
     @Override
     public void destroy() {
         Filter.super.destroy();
+    }
+
+    public boolean checkIsLogin(User user){
+        if(user == null){
+            return false;
+        }
+        return true;
     }
 }

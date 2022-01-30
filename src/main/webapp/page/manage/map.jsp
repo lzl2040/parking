@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=4vYD7CG1HjAKfDhKAoUpVNyGho0H8pCF">
-    </script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=4vYD7CG1HjAKfDhKAoUpVNyGho0H8pCF"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=1.0&type=webgl&ak=4vYD7CG1HjAKfDhKAoUpVNyGho0H8pCF"></script>
     <style type="text/css">
         body{
             width: 100%;
@@ -72,29 +72,52 @@
             });
 
             function initMap(){
+                var freeSpace = new BMapGL.Icon("static/img/free.png", new BMapGL.Size(23, 23), {
+                    // 指定定位位置。
+                    // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+                    // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+                    // 图标中央下端的尖角位置。
+                    anchor: new BMapGL.Size(10, 25)
+                });
+                var notFreeSpace = new BMapGL.Icon("static/img/notfree.png", new BMapGL.Size(23, 23), {
+                    // 指定定位位置。
+                    // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+                    // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+                    // 图标中央下端的尖角位置。
+                    anchor: new BMapGL.Size(10, 25)
+                });
                 var map = new BMapGL.Map("container");
                 var point = new BMapGL.Point(116.331398,39.897445);
-                map.centerAndZoom(point,12);                                        //中心点以及缩放
+                map.centerAndZoom(point,19);                                        //中心点以及缩放
                 map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
-                var geolocation = new BMapGL.Geolocation();
-                geolocation.getCurrentPosition(function(r){
-                    if(this.getStatus() == BMAP_STATUS_SUCCESS){
-                        var mk = new BMapGL.Marker(r.point);
-                        map.addOverlay(mk);
-                        map.panTo(r.point);
-                    }
-                    else {
-                        alert('failed' + this.getStatus());
-                    }
-                });
-                addMarker(map);
+                locateMyPosition(map);
+                addMarker(map,freeSpace,notFreeSpace);
             }
 
-            function addMarker(map){
+            function addMarker(map,free,notfree){
               <c:forEach items="${sessionScope.locations}" var="location">
-                    var marker = new BMapGL.Marker(new BMapGL.Point(${location.longtitude}, ${location.latitude}));
-                    map.addOverlay(marker);
+                    <c:if test="${location.has_car == 1}">
+                        var marker1 = new BMapGL.Marker(new BMapGL.Point(${location.longtitude}, ${location.latitude}),{icon: notfree});
+                        map.addOverlay(marker1);
+                    </c:if>
+                    <c:if test="${location.has_car == 0}">
+                        var marker = new BMapGL.Marker(new BMapGL.Point(${location.longtitude}, ${location.latitude}),{icon: free});
+                        map.addOverlay(marker);
+                    </c:if>
                 </c:forEach>
+            };
+
+            function locateMyPosition(map){
+                var ggPoint = null;
+                var x,y;
+                navigator.geolocation.getCurrentPosition(function (position) {
+                     //得到html5定位结果
+                     x = position.coords.longitude;
+                     y = position.coords.latitude;
+                     map.panTo(new BMapGL.Point(x,y));
+                     console.log("经度:"+x+" 纬度:"+y);
+                });
+
             };
 
             function setSelected(eId){

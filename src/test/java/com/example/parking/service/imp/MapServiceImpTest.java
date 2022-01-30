@@ -13,6 +13,6 @@ class MapServiceImpTest {
     @Test
     void getMap() {
         List<Location> locations = mapService.getMap();
-        System.out.println(locations.get(0).getCarNum());
+        System.out.println(locations.get(0).getHas_car());
     }
 }
