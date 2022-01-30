@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.example.parking.entity.User" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
@@ -72,6 +71,11 @@
             width: 100px;
             height: 40px;
         }
+        #watch-code{
+            height: 30px;
+            width: 30px;
+        }
+
     </style>
     <%@include file="/page/common/base.jsp"%>
     <%--    address int there do not need to add /--%>
@@ -79,7 +83,6 @@
     <title>管理中心</title>
 </head>
 <body>
-    <% User user = (User) request.getSession().getAttribute("user");%>
     <%@include file="/page/common/userTop.jsp"%>
     <div class="middleFrame">
         <%@include file="/page/common/leftNav.jsp"%>
@@ -89,7 +92,7 @@
                 <div class="info">
                     <span class="tag">用户名:</span>
                     <span class="content">
-                        <%=user.getUser_name()%>
+                        ${sessionScope.user.user_name}
                     </span>
                 </div>
                 <div class="info">
@@ -118,9 +121,10 @@
 
                 <div class="info">
                     <span class="tag">密码:</span>
-                    <span class="content">
-                <%=user.getPwd()%>
-            </span>
+                    <span class="content" id="pwd">
+                        ******
+                    </span>
+                    <img src="static/img/openeye.png" class="seecode" id="watch-code">
                 </div>
                 <div class="revise-wrapper">
                     <button class="revise-btn" type="button">修改个人信息</button>
@@ -139,8 +143,32 @@
             $(".function-menu").on("click","li",function (){
                 var eId = $(this).data("id");
                 window.location.hash = eId;
-
             });
+
+            $(".seecode").bind("mouseover mouseout",function (event){
+                if(event.type == "mouseover"){
+                    $("#pwd").text(${sessionScope.user.pwd});
+                    $("#watch-code").addClass("yes");
+                    $("#watch-code").attr("src","static/img/closeeye.png");
+                }else if(event.type == "mouseout"){
+                    $("#pwd").text("******");
+                    $("#watch-code").removeClass("yes");
+                    $("#watch-code").attr("src","static/img/openeye.png");
+                }
+            });
+
+            <%--$(".seecode").click(function (){--%>
+            <%--    if($(this).hasClass("yes")){--%>
+            <%--        $("#pwd").text("******");--%>
+            <%--        $("#watch-code").removeClass("yes");--%>
+            <%--        $("#watch-code").attr("src","static/img/openeye.png");--%>
+            <%--    }else{--%>
+            <%--        $("#pwd").text(${sessionScope.user.pwd});--%>
+            <%--        $("#watch-code").addClass("yes");--%>
+            <%--        $("#watch-code").attr("src","static/img/closeeye.png");--%>
+            <%--    }--%>
+            <%--});--%>
+
             function setSelected(eId){
               switch (eId){
                   case "#car-position":

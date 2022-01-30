@@ -11,6 +11,7 @@ import com.example.parking.util.WebUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -53,6 +54,12 @@ public class UserServlet extends BaseServlet{
             }else {
                 System.out.println("登录成功");
                 req.getSession().setAttribute("user",user);
+                Cookie nameCookie = new Cookie("username",user.getUser_name());
+                Cookie pwdCookie = new Cookie("pwd",user.getPwd());
+                nameCookie.setMaxAge(24 * 60 * 60);
+                pwdCookie.setMaxAge(24 * 60 * 60);
+                resp.addCookie(nameCookie);
+                resp.addCookie(pwdCookie);
                 resp.sendRedirect("getMap?action=getMap");
             }
         }else{
