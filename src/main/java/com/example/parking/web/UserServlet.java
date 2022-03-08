@@ -28,6 +28,10 @@ public class UserServlet extends BaseServlet{
         String phone = req.getParameter("phone");
         String liveAddress = req.getParameter("address");
         String pwd = req.getParameter("pwd");
+        if(pwd == null  || pwd.length()==0){
+            User user1 = (User) req.getSession().getAttribute("user");
+            pwd = user1.getPwd();
+        }
         User user = new User(userNum,username,pwd,WebUtils.transformSexIntoInt(sex),liveAddress,phone);
         System.out.println("用户编号为"+userNum);
         int rs = userService.updateUser(user);

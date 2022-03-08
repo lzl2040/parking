@@ -65,7 +65,6 @@
         $(function (){
             setSelected(window.location.hash);
             initMap();
-
             $(".function-menu").on("click","li",function (){
                 var eId = $(this).data("id");
                 window.location.hash = eId;

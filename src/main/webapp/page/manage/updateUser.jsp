@@ -139,7 +139,7 @@
                             <c:if test="${empty user.pwd}">
                                 <input type="password" class="form-control" name="pwd" id="pwd" disabled="disabled">
                             </c:if>
-                            <input type="button" value="编辑" class="btn-default edit-btn">
+<%--                            <input type="button" value="编辑" class="btn-default edit-btn">--%>
                         </div>
                         <div class="form-group rpwd-wra">
                             <span class="tag">确认密码:</span>
