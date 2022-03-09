@@ -1,6 +1,5 @@
 package com.example.parking.web;
 
-import com.example.parking.dao.UserDao;
 import com.example.parking.entity.User;
 import com.example.parking.service.UserService;
 import com.example.parking.service.imp.UserServiceImp;

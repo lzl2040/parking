@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="aliyun-java-sdk-core-4.1.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/aliyun-java-sdk-core-4.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/aliyun-java-sdk-iot-5.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

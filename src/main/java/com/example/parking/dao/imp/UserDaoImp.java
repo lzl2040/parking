@@ -1,9 +1,9 @@
 package com.example.parking.dao.imp;
 
-import com.example.parking.dao.UserDao2;
+import com.example.parking.dao.UserDao;
 import com.example.parking.entity.User;
 
-public class UserDaoImp extends BaseDao implements UserDao2 {
+public class UserDaoImp extends BaseDao implements UserDao {
     @Override
     public User queryUserByNameAndPwd(String username, String pwd) {
         String sql = "select * from user where user_name = ? and pwd = ?";
